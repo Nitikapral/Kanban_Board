@@ -10,7 +10,7 @@ type Node = {
 
 const TreeView = () => {
   const [data, setData] = useState<Node[]>([
-    { id: 1, text: "Level A" }, 
+    { id: 1, text: "Level A" },
     { id: 2, text: "Level B" },
   ]);
 
@@ -20,7 +20,7 @@ const TreeView = () => {
       setData([...data]);
 
       setTimeout(() => {
-        item.child = [{ id: Date.now(), text: "Level A" }];
+        item.child = [{ id: Date.now(), text: "New Node" }];
         item.loading = false;
         item.open = true;
         setData([...data]);
@@ -32,11 +32,6 @@ const TreeView = () => {
   };
 
   const addNode = (item: Node) => {
-    if (item.id === 1) {
-      alert("Cannot add a node to the root node!");
-      return;
-    }
-
     const name = prompt("Node name");
     if (!name) return;
 
@@ -48,7 +43,7 @@ const TreeView = () => {
 
   const removeNode = (list: Node[], id: number): Node[] =>
     list
-      .filter((n) => n.id !== id && n.id !== 1) 
+      .filter((n) => n.id !== id) 
       .map((n) =>
         n.child ? { ...n, child: removeNode(n.child, id) } : n
       );
@@ -73,18 +68,16 @@ const TreeView = () => {
               className="bi bi-plus"
               onClick={() => addNode(item)}
             ></i>
-            <i
-              className="bi bi-trash"
-              onClick={() => {
-                if (item.id === 1) {
-                  alert("Cannot delete the root node!");
-                  return;
-                }
-                if (confirm("Delete node?")) {
-                  setData(removeNode(data, item.id));
-                }
-              }}
-            ></i>
+            {item.id !== 1 && ( 
+              <i
+                className="bi bi-trash"
+                onClick={() => {
+                  if (confirm("Delete node?")) {
+                    setData(removeNode(data, item.id));
+                  }
+                }}
+              ></i>
+            )}
           </div>
         </div>
       </div>
