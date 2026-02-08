@@ -1,0 +1,140 @@
+.kanban-column {
+  transition: background-color 0.2s ease;
+}
+
+.kanban-column:hover {
+  background-color: #eef1f4;
+}
+
+.kanban-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kanban-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+  opacity: 0.85;
+}
+
+.kanban-btn {
+  transition: transform 0.12s ease;
+}
+
+.kanban-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.2s ease;
+}
+
+.tree-node {
+  margin: .4rem;
+}
+
+
+.tree-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tree-circle.root {
+  background: linear-gradient(135deg, #0d6efd, #4dabf7);
+}
+
+.tree-circle.child {
+  background: linear-gradient(135deg, #51cf66, #2f9e44);
+}
+
+.tree-card {
+  margin-left: 14px;
+  padding: 6px 12px;
+  min-width: 170px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.tree-card:hover {
+  border-color: #adb5bd;
+  background: #f8f9fa;
+  transform: translateX(2px);
+}
+
+.tree-card span {
+  font-size: 14px;
+  color: #212529;
+}
+
+.tree-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.tree-actions i {
+  cursor: pointer;
+  font-size: 14px;
+  color: #868e96;
+  transition: color 0.2s ease;
+}
+
+.tree-actions i:hover {
+  color: #212529;
+}
+
+.tree-actions .bi-trash:hover {
+  color: #dc3545;
+}
+
+.tree-actions .bi-plus:hover {
+  color: #198754;
+}
+
+.tree-loading {
+  margin-left: 52px;
+  font-size: 12px;
+  color: #868e96;
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
